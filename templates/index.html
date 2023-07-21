@@ -45,6 +45,7 @@
 								                             {{block.timestamp}}, 
 															'{{block.currentHash}}', 
 															'{{block.previousHash}}', 
+															'{{block.isValid}}',
 															'{{block.transaction['sender']}}', 
 															'{{block.transaction['receiver']}}', 
 															'{{block.transaction['amount']}}')">
@@ -127,16 +128,16 @@
 					'rotateX(' + xAngle + 'deg) rotateY(' + yAngle + 'deg)';
 			}
 
-			function toggleInfoSection(index, timestamp, currentHash, previousHash, sender, receiver, amount) {
+			function toggleInfoSection(index, timestamp, currentHash, previousHash, validation, sender, receiver, amount) {
 				var infoSection = document.getElementById('infoSection');
 				infoSection.classList.toggle('active');
 
 				console.log(index, timestamp, currentHash, previousHash, sender, receiver, amount)
 
 				document.getElementById('indexData').innerHTML = index
-				document.getElementById('previousHash').innerHTML = timestamp
+				document.getElementById('previousHash').innerHTML = previousHash
 				document.getElementById('currentHash').innerHTML = currentHash
-				document.getElementById('validationData').innerHTML = previousHash
+				document.getElementById('validationData').innerHTML = validation
 				document.getElementById('senderData').innerHTML = sender
 				document.getElementById('receiverData').innerHTML = receiver
 				document.getElementById('amountData').innerHTML = amount
